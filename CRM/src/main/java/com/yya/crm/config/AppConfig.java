@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -34,13 +35,10 @@ public class AppConfig {
 	private Environment env;
 
 	@Bean
-    public ResourceBundleMessageSource resourceBundleMessageSource() {
-
-		ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasenames("messages/properties");
-        source.setUseCodeAsDefaultMessage(true);
-
-        return source;
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
     }
 	
 	

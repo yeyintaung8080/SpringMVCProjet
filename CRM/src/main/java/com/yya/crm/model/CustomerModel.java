@@ -1,10 +1,14 @@
 package com.yya.crm.model;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class CustomerModel {
+import org.hibernate.validator.constraints.Email;
+
+public class CustomerModel implements Serializable{
 	
 	private Integer id;//hidden
 	
@@ -20,6 +24,7 @@ public class CustomerModel {
 	private Integer age;
 	
 	@NotNull(message="is required")
+	@Email
 	private String email;
 	
 	@NotNull(message="is required")
